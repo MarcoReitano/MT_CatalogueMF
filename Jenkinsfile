@@ -3,10 +3,15 @@ pipeline {
         docker { image 'node:10-alpine' }
     }
     stages {
-        stage('Test') {
+
+        stage('Environment') {
             steps {
                 sh 'node --version'
             }
+        }
+
+        stage('Build') {
+          sh 'npm run build'
         }
     }
 }

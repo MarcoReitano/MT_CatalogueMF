@@ -14,6 +14,6 @@
     "wct-mocha": "^1.0.0"
   },
   "scripts": {
-    "build": "polymer build && cp -R ./build/default/{node_modules,resources,artist-element.js,artist-list.js} ../0_Website/html"
+    "build": "polymer build"
   }
 }
