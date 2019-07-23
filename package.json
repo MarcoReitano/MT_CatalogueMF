@@ -11,6 +11,7 @@
     "@webcomponents/webcomponentsjs": "^2.2.7",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
+    "polymer-cli": "^1.9.11",
     "wct-mocha": "^1.0.0"
   },
   "scripts": {
