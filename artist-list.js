@@ -1,21 +1,21 @@
-import {html, PolymerElement} from './node_modules/@polymer/polymer/polymer-element.js';
+import {
+  html,
+  PolymerElement
+} from './node_modules/@polymer/polymer/polymer-element.js';
 import './node_modules/@polymer/polymer/lib/elements/dom-repeat.js'
 import './node_modules/@polymer/iron-ajax/iron-ajax.js';
+
 /**
  * `artist-list`
- * 
+ *
  *
  * @customElement
  * @polymer
  * @demo demo/index.html
  */
 class ArtistList extends PolymerElement {
-  constructor(){
+  constructor() {
     super();
-  }
-
-  _handleResponse(event, request){
-    console.log("Response!");
   }
 
   static get template() {
@@ -39,7 +39,7 @@ class ArtistList extends PolymerElement {
 
         <iron-ajax 
           auto 
-          url="http://localhost/artists/"
+          url="https://api.marcoreitano.dev/artists/"
           handle-as="json"
           last-Response="{{responseData}}"
           on-response="_handleResponse"
@@ -48,6 +48,7 @@ class ArtistList extends PolymerElement {
       </div>
     `;
   }
+
   static get properties() {
     return {
       artists: {
@@ -55,5 +56,10 @@ class ArtistList extends PolymerElement {
       }
     };
   }
+
+  _handleResponse(event, request) {
+    console.log("Response!");
+  }
 }
+
 window.customElements.define('artist-list', ArtistList);
