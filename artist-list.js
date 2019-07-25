@@ -31,7 +31,7 @@ class ArtistList extends PolymerElement {
         }
       </style>
       <div class="artist-list">
-        <h1 class="list-title">Artist list</h1>
+        <h1 class="list-title">Artists list</h1>
 
         <template is="dom-repeat" items="[[responseData._embedded.artists]]">
           <artist-element artist="{{item}}"></artist-element>
