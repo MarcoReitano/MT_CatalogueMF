@@ -17,8 +17,13 @@ pipeline {
             agent any
             steps {
                 sh 'docker build -t marcoreitano/artistmf .'
-                sh 'docker tag marcoreitano/artistmf dockernexus.marcoreitano.dev/artistmf'
+            }
+        }
 
+        stage('Push to Registry') {
+            agent any
+            steps {
+                sh 'docker tag marcoreitano/artistmf dockernexus.marcoreitano.dev/artistmf'
                 withDockerRegistry([credentialsId: 'docker-registry-credentials', url: "https://dockernexus.marcoreitano.dev/"]) {
                     sh 'docker push dockernexus.marcoreitano.dev/artistmf'
                 }
