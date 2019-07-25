@@ -1,23 +1,20 @@
 pipeline {
-    agent {
-        docker { image 'node:10-alpine' }
-    }
+    agent none
     stages {
 
-        stage('Environment') {
+        stage('Build') {
+            agent {
+                docker { image 'node:10-alpine' }
+            }
             steps {
                 sh 'node --version'
-            }
-        }
-
-        stage('Build') {
-            steps {
                 sh 'npm install'
                 sh 'npm run build'
             }
         }
 
         stage('Build Docker Image') {
+            agent any
             steps {
                 sh 'docker build -t marcoreitano/artistmf .'
             }
