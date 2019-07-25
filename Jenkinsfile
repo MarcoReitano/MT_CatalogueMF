@@ -17,6 +17,8 @@ pipeline {
             agent any
             steps {
                 sh 'docker build -t marcoreitano/artistmf .'
+                sh 'docker tag marcoreitano/artitstmf dockernexus.marcoreitano.dev/artistmf'
+                sh 'docker push dockernexus.marcoreitano.dev/artistmf'
             }
         }
     }
