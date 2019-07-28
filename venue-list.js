@@ -10,7 +10,7 @@ import '@polymer/iron-ajax/iron-ajax.js';
  * @polymer
  * @demo demo/index.html
  */
-class ArtistList extends PolymerElement {
+class VenueList extends PolymerElement {
   constructor() {
     super();
   }
@@ -18,7 +18,7 @@ class ArtistList extends PolymerElement {
   static get template() {
     return html`
       <style>
-        .artist-list {
+        .venue-list {
           display: block;
           color: white;
           font-family: Arial, Helvetica, sans-serif;
@@ -27,16 +27,16 @@ class ArtistList extends PolymerElement {
           color:black
         }
       </style>
-      <div class="artist-list">
-        <h1 class="list-title">Artists list</h1>
+      <div class="venue-list">
+        <h1 class="list-title">Venue list</h1>
 
-        <template is="dom-repeat" items="[[responseData._embedded.artists]]">
-          <catalogue-artist-element artist="{{item}}"></catalogue-artist-element>
+        <template is="dom-repeat" items="[[responseData._embedded.venues]]">
+          <catalogue-venue-element venue="{{item}}"></catalogue-venue-element>
         </template>
 
         <iron-ajax 
           auto 
-          url="https://api.marcoreitano.dev/artists/"
+          url="https://api.marcoreitano.dev/venues/"
           handle-as="json"
           last-Response="{{responseData}}"
           on-response="_handleResponse"
@@ -55,8 +55,8 @@ class ArtistList extends PolymerElement {
   }
 
   _handleResponse(event, request) {
-    console.log("Response!");
+    console.log("Response venues!");
   }
 }
 
-window.customElements.define('catalogue-artist-list', ArtistList);
+window.customElements.define('catalogue-venue-list', VenueList);
