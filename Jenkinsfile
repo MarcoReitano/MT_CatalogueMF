@@ -16,16 +16,16 @@ pipeline {
         stage('Build Docker Image') {
             agent any
             steps {
-                sh 'docker build -t marcoreitano/artistmf .'
+                sh 'docker build -t marcoreitano/cataloguemf .'
             }
         }
 
         stage('Push to Registry') {
             agent any
             steps {
-                sh 'docker tag marcoreitano/artistmf dockernexus.marcoreitano.dev/artistmf'
+                sh 'docker tag marcoreitano/cataloguemf dockernexus.marcoreitano.dev/cataloguemf'
                 withDockerRegistry([credentialsId: 'docker-registry-credentials', url: "https://dockernexus.marcoreitano.dev/"]) {
-                    sh 'docker push dockernexus.marcoreitano.dev/artistmf'
+                    sh 'docker push dockernexus.marcoreitano.dev/cataloguemf'
                 }
             }
         }

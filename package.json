@@ -1,5 +1,5 @@
 {
-  "name": "artist-element",
+  "name": "catalogue-microfrontends",
   "main": "artist-element.js",
   "dependencies": {
     "@polymer/iron-ajax": "^3.0.1",

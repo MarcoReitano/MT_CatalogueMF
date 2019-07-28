@@ -9,12 +9,13 @@
     "./resources/Twitter_Social_Icon_Square_White.png",
     "./resources/flogo-HexRBG-Wht-58.png",
     "./resources/mtv-icon-white-200px.png",
-    "./resources/Adele.jpg"
+    "./resources/Adele.jpg",
+    "./resources/include.html"
   ],
   "builds": [
     {
       "name": "default",
-      "preset": "es5-unbundled"
+      "preset": "es6-bundled"
     }
   ]
 }
