@@ -15,9 +15,24 @@
   "shell": "catalogue.js",
   "builds": [
     {
+      "name": "es2015",
       "bundle": true,
       "js": {
         "compile": false,
+        "minify": true
+      },
+      "css": {
+        "minify": false
+      },
+      "html": {
+        "minify": false
+      }
+    },
+    {
+      "name": "es5",
+      "bundle": true,
+      "js": {
+        "compile": true,
         "minify": true
       },
       "css": {
