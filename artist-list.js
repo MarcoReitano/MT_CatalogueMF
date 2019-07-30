@@ -56,6 +56,12 @@ class ArtistList extends PolymerElement {
     };
   }
 
+  // @formatter:off
+  static get importMeta() {
+    return import.meta;
+  }
+  // @formatter:on
+
   _handleResponse(event, request) {
     console.log("Response!");
   }

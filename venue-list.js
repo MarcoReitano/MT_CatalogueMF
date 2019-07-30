@@ -48,6 +48,12 @@ class VenueList extends PolymerElement {
     `;
   }
 
+  // @formatter:off
+  static get importMeta() {
+    return import.meta;
+  }
+  // @formatter:on
+
   static get properties() {
     return {
       artists: {
