@@ -16,7 +16,7 @@ class ArtistElement extends PolymerElement {
       <style xmlns="http://www.w3.org/1999/html">
         .artist-container{
           position: relative;
-          background: linear-gradient(to right, transparent , #000000) no-repeat, url("resources/Adele.jpg") no-repeat, black;
+          background: linear-gradient(to right, transparent , #000000) no-repeat, url("./resources/Adele.jpg") no-repeat, black;
           background-size: 200px;
           color: white;
           font-family: Arial, Helvetica, sans-serif;
@@ -54,19 +54,19 @@ class ArtistElement extends PolymerElement {
         
           <template is="dom-if" if="{{artist.facebookURI}}">
             <a href="[[artist.facebookURI]]">
-              <img class="socialmedia-icon" src="resources/flogo-HexRBG-Wht-58.png" alt="facebook">
+              <img class="socialmedia-icon" src="./resources/flogo-HexRBG-Wht-58.png" alt="facebook">
             </a>
           </template>  
                   
           <template is="dom-if" if="{{artist.twitterURI}}">
             <a href="[[artist.twitterURI]]">
-              <img class="socialmedia-icon" src="resources/Twitter_Social_Icon_Square_White.png" alt="twitter">
+              <img class="socialmedia-icon" src="./resources/Twitter_Social_Icon_Square_White.png" alt="twitter">
             </a>
           </template>
           
           <template is="dom-if" if="{{artist.mtvURI}}">
             <a href="[[artist.mtvURI]]">
-              <img class="socialmedia-icon" src="resources/mtv-icon-white-200px.png" alt="mtv">
+              <img class="socialmedia-icon" src="./resources/mtv-icon-white-200px.png" alt="mtv">
             </a>
           </template>
         </div>
