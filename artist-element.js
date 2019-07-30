@@ -46,6 +46,7 @@ class ArtistElement extends PolymerElement {
         }
       </style>
       <div class="artist-container">
+        <p>[[importPath]]</p>
         <img class="artist-bubble" src="./resources/Adele.jpg" />
         <img class="artist-bubble" src="./resources/Adele.jpg" />
         <div class="artist-alias">[[artist.alias]]</div>
@@ -72,8 +73,13 @@ class ArtistElement extends PolymerElement {
         </div>
       </div>
     `;
-  }
+  };
 
+  // @formatter:off
+  static get importMeta() {
+    return import.meta;
+  }
+  // @formatter:on
   static get properties() {
     return {
       artist: {
