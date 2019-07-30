@@ -53,7 +53,7 @@ class ArtistElement extends PolymerElement {
         
           <template is="dom-if" if="{{artist.facebookURI}}">
             <a href="[[artist.facebookURI]]">
-              <img class="socialmedia-icon" src&="[[importPath]]resources/flogo-HexRBG-Wht-58.png" alt="facebook">
+              <img class="socialmedia-icon" src$="[[importPath]]resources/flogo-HexRBG-Wht-58.png" alt="facebook">
             </a>
           </template>  
                   
