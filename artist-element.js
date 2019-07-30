@@ -47,27 +47,25 @@ class ArtistElement extends PolymerElement {
       </style>
       <div class="artist-container">
         <p>[[importPath]]</p>
-        <img class="artist-bubble" src="./resources/Adele.jpg" />
-        <img class="artist-bubble" src="./resources/Adele.jpg" />
         <div class="artist-alias">[[artist.alias]]</div>
         <div class="artist-genre">[[artist.genre]]</div>
         <div class="socialmedia-bar">
         
           <template is="dom-if" if="{{artist.facebookURI}}">
             <a href="[[artist.facebookURI]]">
-              <img class="socialmedia-icon" src="./resources/flogo-HexRBG-Wht-58.png" alt="facebook">
+              <img class="socialmedia-icon" src$="[[importPath]]resources/flogo-HexRBG-Wht-58.png" alt="facebook">
             </a>
           </template>  
                   
           <template is="dom-if" if="{{artist.twitterURI}}">
             <a href="[[artist.twitterURI]]">
-              <img class="socialmedia-icon" src="./resources/Twitter_Social_Icon_Square_White.png" alt="twitter">
+              <img class="socialmedia-icon" src$="[[importPath]]resources/Twitter_Social_Icon_Square_White.png" alt="twitter">
             </a>
           </template>
           
           <template is="dom-if" if="{{artist.mtvURI}}">
             <a href="[[artist.mtvURI]]">
-              <img class="socialmedia-icon" src="./resources/mtv-icon-white-200px.png" alt="mtv">
+              <img class="socialmedia-icon" src$="[[importPath]]resources/mtv-icon-white-200px.png" alt="mtv">
             </a>
           </template>
         </div>
