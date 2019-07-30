@@ -46,7 +46,6 @@ class ArtistElement extends PolymerElement {
         }
       </style>
       <div class="artist-container">
-        <p>[[importPath]]</p>
         <div class="artist-alias">[[artist.alias]]</div>
         <div class="artist-genre">[[artist.genre]]</div>
         <div class="socialmedia-bar">

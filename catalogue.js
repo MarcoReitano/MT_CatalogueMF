@@ -1,6 +1,7 @@
 import './artist-element'
 import './artist-list'
 import './catalogue-search'
+import './catalogue-search-results'
 import './concert-element'
 import './concert-list'
 import './venue-element'

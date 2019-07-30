@@ -8,20 +8,14 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
  * @polymer
  * @demo demo/index.html
  */
-class CatalogueSearch extends PolymerElement {
+class CatalogueSearchResults extends PolymerElement {
   static get template() {
     return html`
+
       <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
       <div class="search-container">
-        <div class="field has-addons">
-          <div class="control is-expanded">
-            <input class="input" type="text" placeholder="Find an artist or event">
-          </div>
-          <div class="control">
-            <button class="button">Search</button>
-          </div>
-        </div>        
+        <catalogue-artist-list></catalogue-artist-list>
       </div>
     `;
   }
@@ -41,4 +35,5 @@ class CatalogueSearch extends PolymerElement {
   }
 }
 
-window.customElements.define('catalogue-search', CatalogueSearch);
+window.customElements.define('catalogue-search-results',
+    CatalogueSearchResults);
