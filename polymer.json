@@ -12,17 +12,19 @@
     "./resources/Adele.jpg",
     "./resources/include.html"
   ],
+  "shell": "catalogue.js",
   "builds": [
     {
-      "bundle": false,
+      "bundle": true,
       "js": {
+        "compile": false,
         "minify": true
       },
       "css": {
-        "minify": true
+        "minify": false
       },
       "html": {
-        "minify": true
+        "minify": false
       }
     }
   ]
