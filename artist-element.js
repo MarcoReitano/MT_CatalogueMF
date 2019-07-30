@@ -11,6 +11,8 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 class ArtistElement extends PolymerElement {
   static get template() {
     return html`
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
       <style xmlns="http://www.w3.org/1999/html">
         .artist-container{
           position: relative;
