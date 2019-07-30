@@ -8,7 +8,7 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
  * @polymer
  * @demo demo/index.html
  */
-class ArtistElement extends PolymerElement {
+class CatalogueSearch extends PolymerElement {
   static get template() {
     return html`
       <style xmlns="http://www.w3.org/1999/html">
@@ -43,31 +43,15 @@ class ArtistElement extends PolymerElement {
           width: 20px;
         }
       </style>
-      <div class="artist-container">
-        <img class="artist-bubble" src="./resources/Adele.jpg" />
-        <img class="artist-bubble" src="./resources/Adele.jpg" />
-        <div class="artist-alias">[[artist.alias]]</div>
-        <div class="artist-genre">[[artist.genre]]</div>
-        <div class="socialmedia-bar">
-        
-          <template is="dom-if" if="{{artist.facebookURI}}">
-            <a href="[[artist.facebookURI]]">
-              <img class="socialmedia-icon" src="resources/flogo-HexRBG-Wht-58.png" alt="facebook">
-            </a>
-          </template>  
-                  
-          <template is="dom-if" if="{{artist.twitterURI}}">
-            <a href="[[artist.twitterURI]]">
-              <img class="socialmedia-icon" src="resources/Twitter_Social_Icon_Square_White.png" alt="twitter">
-            </a>
-          </template>
-          
-          <template is="dom-if" if="{{artist.mtvURI}}">
-            <a href="[[artist.mtvURI]]">
-              <img class="socialmedia-icon" src="resources/mtv-icon-white-200px.png" alt="mtv">
-            </a>
-          </template>
-        </div>
+      <div class="search-container">
+        <div class="field has-addons">
+          <div class="control">
+            <input class="input" type="text" placeholder="Find an artist or event">
+          </div>
+          <div class="control">
+            <button class="button">Search</button>
+          </div>
+        </div>        
       </div>
     `;
   }
@@ -81,4 +65,4 @@ class ArtistElement extends PolymerElement {
   }
 }
 
-window.customElements.define('catalogue-artist-element', ArtistElement);
+window.customElements.define('catalogue-search', CatalogueSearch);
