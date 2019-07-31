@@ -16,7 +16,7 @@ class ArtistDetailView extends PolymerElement {
       <style xmlns="http://www.w3.org/1999/html">
       </style>
       <div>
-        <a (click)="logLocation()">CLICK ME</a>
+        <a onclick="logLocation()">CLICK ME</a>
         <p>[[location.param.id]]</p>
         <p>[[location.params.0]]</p>
         <p>[[window.location.params.id]]</p>
@@ -41,8 +41,18 @@ class ArtistDetailView extends PolymerElement {
     }
   }
 
+  ready() {
+    super.ready();
+    console.log('Test1' + window.location.pathname);
+    console.log('Test2' + window.location.params.id);
+    console.log('Test3' + window.location.params[0]);
+    console.log('Test4' + location.params.id);
+    console.log('Test5' + location.params[0]);
+  }
+
   logLocation() {
-    console.log(window.location.pathname);
+    console.log('something?!');
+    console.log('Test6' + window.location.pathname);
   }
 }
 
