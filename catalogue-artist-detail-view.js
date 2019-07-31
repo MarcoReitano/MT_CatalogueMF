@@ -16,9 +16,13 @@ class ArtistDetailView extends PolymerElement {
       <style xmlns="http://www.w3.org/1999/html">
       </style>
       <div>
+      blaa
         <p>{{this.location.params.id}}</p>
-        <p>[[window.location.params.id]]</p>
-        <p>[[window.location.params.0]]</p>
+        <p>[[this.location.params.id]]</p>
+        <p>[[location.params.id]]</p>
+        <p>[[location.params.id]]</p>
+        <p>[[arrayItem(this.location.params.*),0)]]</p>
+        <p>[[arrayItem(location.params.*),0)]]</p>
         <div class="artist-alias">[[artist.alias]]</div>
         <div class="artist-genre">[[artist.genre]]</div>
       </div>
