@@ -16,6 +16,7 @@ class ArtistDetailView extends PolymerElement {
       <style xmlns="http://www.w3.org/1999/html">
       </style>
       <div>
+        <a (click)="logLocation()"></a>
         <p>[[location.param.id]]</p>
         <p>[[location.params.0]]</p>
         <p>[[window.location.params.id]]</p>
@@ -38,6 +39,10 @@ class ArtistDetailView extends PolymerElement {
         type: String
       }
     }
+  }
+
+  logLocation() {
+    console.log(window.location.pathname);
   }
 }
 
