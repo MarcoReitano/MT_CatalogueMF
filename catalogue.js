@@ -6,3 +6,5 @@ import './concert-element'
 import './concert-list'
 import './venue-element'
 import './venue-list'
+
+import './catalogue-artist-detail-view'
