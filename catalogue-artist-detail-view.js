@@ -16,7 +16,7 @@ class ArtistDetailView extends PolymerElement {
       <style xmlns="http://www.w3.org/1999/html">
       </style>
       <div>
-        <p>[[artistId]]</p>
+        <p>[[location.param.id]]</p>
         <div class="artist-alias">[[artist.alias]]</div>
         <div class="artist-genre">[[artist.genre]]</div>
       </div>
@@ -35,7 +35,7 @@ class ArtistDetailView extends PolymerElement {
         type: String
       }
     }
-  };
+  }
 }
 
 window.customElements.define('catalogue-artist-detail-view', ArtistDetailView);
