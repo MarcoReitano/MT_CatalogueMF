@@ -44,11 +44,11 @@ class ArtistDetailView extends PolymerElement {
   ready() {
     super.ready();
     console.log('Test1' + window.location.pathname);
-    console.log('Test2' + window.location.params.id);
-    console.log('Test3' + window.location.params[0]);
+    console.log('Test2' + this.location.params.id);
+    console.log('Test3' + this.location.params[0]);
     console.log('Test4' + location.params.id);
     console.log('Test5' + location.params[0]);
-    console.log('Test5' + location.pathname);
+    console.log('Test5' + this.location.pathname);
   }
 
   logLocation() {
