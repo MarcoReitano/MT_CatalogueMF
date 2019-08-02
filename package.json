@@ -2,6 +2,7 @@
   "name": "catalogue-microfrontends",
   "main": "artist-element.js",
   "dependencies": {
+    "@polymer/app-storage": "^3.0.2",
     "@polymer/iron-ajax": "^3.0.1",
     "@polymer/polymer": "^3.3.0"
   },
