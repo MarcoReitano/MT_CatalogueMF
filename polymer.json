@@ -1,5 +1,4 @@
 {
-  "basePath": "webcomponents/catalogue",
   "npm": true,
   "lint": {
     "rules": [
