@@ -10,3 +10,10 @@ import './venue-element'
 import './venue-list'
 
 import './catalogue-artist-detail-view'
+
+if ('serviceWorker' in navigator) {
+  // Delay registering until page load
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('service-worker.js');
+  });
+}
