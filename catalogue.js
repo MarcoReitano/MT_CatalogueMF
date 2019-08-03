@@ -14,6 +14,6 @@ import './catalogue-artist-detail-view'
 if ('serviceWorker' in navigator) {
   // Delay registering until page load
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('/webcomponents/order/service-worker.js');
   });
 }
