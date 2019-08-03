@@ -16,7 +16,7 @@ class CatalogueSearch extends PolymerElement {
       <div class="search-container">
         <div class="field has-addons">
           <div class="control is-expanded">
-            <input class="input" type="text" placeholder="Find an artist or event" value="{{searchValue}}">
+            <input id="searchInput" class="input" type="text" placeholder="Find an artist or event" on-input="onInput">
           </div>
           <div class="control">
             <button class="button" on-click="searchOnClick">Search</button>
@@ -24,21 +24,22 @@ class CatalogueSearch extends PolymerElement {
         </div>        
       </div>
       
-      <iron-ajax 
-        auto 
+      <iron-ajax id="searchAPI" 
         url="https://api.marcoreitano.dev/artists/search/findByAlias_AliasIgnoreCaseContaining"
-        params='{"alias":"ed"}'
         handle-as="json"
         last-Response="{{liveData}}"
         on-response="_handleResponse"
         debounce-duration="300">
       </iron-ajax>
-      
       <app-indexeddb-mirror
         key="search"
         data="{{liveData}}"
         persisted-data="{{persistedData}}">
-      </app-indexeddb-mirror>
+      </app-indexeddb-mirror> 
+      
+      <template is="dom-repeat" items="{{persistedData2._embedded.artists}}" as="artist">
+        <catalogue-artist-element artist="{{artist}}"></catalogue-artist-element>
+      </template>
     `;
   }
 
@@ -52,13 +53,27 @@ class CatalogueSearch extends PolymerElement {
     return {
       artist: {
         type: Object
-      },
-    };
+      }
+    }
   };
+
+  onInput() {
+    this.searchValue = this.$.searchInput.value;
+    this.$.searchAPI.set('params', {"alias": this.searchValue});
+    this.$.searchAPI.generateRequest();
+  }
 
   searchOnClick() {
-
+    this.searchValue = this.$.searchInput.value;
+    this.$.searchAPI.set('params', {"alias": this.searchValue});
+    this.$.searchAPI.generateRequest();
   };
+
+  _handleResponse() {
+    this.dispatchEvent(
+        new CustomEvent('catalogueSearch', {bubbles: true, composed: true}));
+    console.log("catalogueSearch event dispatched")
+  }
 
 }
 
