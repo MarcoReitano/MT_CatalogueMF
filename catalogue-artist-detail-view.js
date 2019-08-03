@@ -42,13 +42,6 @@ class ArtistDetailView extends PolymerElement {
       }
     }
   }
-
-  ready() {
-    super.ready();
-    console.log('Test1' + window.location.pathname);
-    console.log('Test2' + this.location.params.id);
-    console.log('Test5' + this.location.pathname);
-  }
 }
 
 window.customElements.define('catalogue-artist-detail-view', ArtistDetailView);
