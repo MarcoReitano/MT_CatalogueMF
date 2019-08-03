@@ -31,11 +31,11 @@ class CatalogueSearch extends PolymerElement {
         on-response="_handleResponse"
         debounce-duration="300">
       </iron-ajax>
-      <!--<app-indexeddb-mirror-->
-        <!--key="search"-->
-        <!--data="{{liveData}}"-->
-        <!--persisted-data="{{persistedData}}">-->
-      <!--</app-indexeddb-mirror> -->
+      <app-indexeddb-mirror
+        key="search"
+        data="{{liveData}}"
+        persisted-data="{{persistedData}}">
+      </app-indexeddb-mirror> 
     `;
   }
 
