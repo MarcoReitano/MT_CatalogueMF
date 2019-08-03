@@ -9,6 +9,11 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
  * @demo demo/index.html
  */
 class CatalogueSearch extends PolymerElement {
+  constructor() {
+    super();
+    this._boundListener = this._myLocationListener.bind(this);
+  }
+
   static get template() {
     return html`
       <link rel="stylesheet"
@@ -43,7 +48,6 @@ class CatalogueSearch extends PolymerElement {
   static get importMeta() {
     return import.meta;
   }
-  // @formatter:on
 
   static get properties() {
     return {
@@ -52,6 +56,18 @@ class CatalogueSearch extends PolymerElement {
       }
     }
   };
+
+  // @formatter:on
+
+  connectedCallback() {
+    super.connectedCallback();
+    window.addEventListener('tokenChanged', this._boundListener);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('tokenChanged', this._boundListener);
+  }
 
   onInput() {
     console.log("OnInput");
@@ -72,6 +88,9 @@ class CatalogueSearch extends PolymerElement {
     console.log("catalogueSearch event dispatched")
   }
 
+  _myLocationListener(e) {
+    console.log("TokenChanged Event received");
+  }
 }
 
 window.customElements.define('catalogue-search', CatalogueSearch);
