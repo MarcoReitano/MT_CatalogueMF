@@ -11,10 +11,4 @@ import './venue-list'
 
 import './catalogue-artist-detail-view'
 
-if ('serviceWorker' in navigator) {
-  // Delay registering until page load
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register(
-        '/webcomponents/catalogue/service-worker.js');
-  });
 }

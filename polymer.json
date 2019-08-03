@@ -18,7 +18,6 @@
     {
       "name": "es2015",
       "bundle": true,
-      "addServiceWorker": true,
       "js": {
         "compile": false,
         "minify": true
@@ -33,7 +32,6 @@
     {
       "name": "es5",
       "bundle": true,
-      "addServiceWorker": true,
       "js": {
         "compile": true,
         "minify": true
