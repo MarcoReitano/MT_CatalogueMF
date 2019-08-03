@@ -16,7 +16,7 @@ class HomeView extends PolymerElement {
       <style xmlns="http://www.w3.org/1999/html">
       </style>
       <div>
-        <button on-click="test"></button>
+        <button on-click="test">Testbutton</button>
       </div>
     `;
   };
@@ -36,7 +36,7 @@ class HomeView extends PolymerElement {
   }
 
   test() {
-    console.log("Buttonclick");
+    window.location.href = "/artist/123";
   }
 }
 
