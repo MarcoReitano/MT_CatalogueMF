@@ -54,8 +54,7 @@ class CatalogueSearch extends PolymerElement {
   };
 
   onInput() {
-    console.log("OnInput")
-  :
+    console.log("OnInput");
     this.searchValue = this.$.searchInput.value;
     this.$.searchAPI.set('params', {"alias": this.searchValue});
     this.$.searchAPI.generateRequest();
