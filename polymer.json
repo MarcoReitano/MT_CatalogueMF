@@ -13,7 +13,8 @@
     "./resources/Adele.jpg",
     "./resources/include.html"
   ],
-  "shell": "catalogue-es2015.js",
+  "shell": "catalogue.js",
+  "autoBasePath": true,
   "builds": [
     {
       "name": "es2015",
