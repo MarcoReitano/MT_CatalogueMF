@@ -36,10 +36,12 @@ class HomeView extends PolymerElement {
   }
 
   test() {
-    window.location.href = "/artist/123";
-    window.dispatchEvent(new CustomEvent(
-        `vaadin-router-go`, {cancelable: true, pathname: '/artist/123'}
-    ));
+    // window.location.href = "/artist/123";
+    // window.dispatchEvent(new CustomEvent(
+    //     `vaadin-router-go`, {cancelable: true, pathname: '/artist/123'}
+    // ));
+    window.history.pushState({}, null, '/artist/123');
+    window.dispatchEvent(new PopStateEvent('popstate'));
   }
 }
 
