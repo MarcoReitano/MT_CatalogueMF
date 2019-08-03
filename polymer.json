@@ -17,7 +17,7 @@
   "builds": [
     {
       "name": "es2015",
-      "bundle": true,
+      "bundle": false,
       "js": {
         "compile": false,
         "minify": true
@@ -31,7 +31,7 @@
     },
     {
       "name": "es5",
-      "bundle": true,
+      "bundle": false,
       "js": {
         "compile": true,
         "minify": true
