@@ -36,10 +36,6 @@ class CatalogueSearch extends PolymerElement {
         data="{{liveData}}"
         persisted-data="{{persistedData}}">
       </app-indexeddb-mirror> 
-      
-      <template is="dom-repeat" items="{{persistedData2._embedded.artists}}" as="artist">
-        <catalogue-artist-element artist="{{artist}}"></catalogue-artist-element>
-      </template>
     `;
   }
 
@@ -58,6 +54,8 @@ class CatalogueSearch extends PolymerElement {
   };
 
   onInput() {
+    console.log("OnInput")
+  :
     this.searchValue = this.$.searchInput.value;
     this.$.searchAPI.set('params', {"alias": this.searchValue});
     this.$.searchAPI.generateRequest();
