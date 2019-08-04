@@ -29,7 +29,7 @@ class CatalogueSearch extends PolymerElement {
           </div>
         </div>        
       </div>
-      
+      <button class="button" on-click="_accountTest">Accounttest</button>
       <iron-ajax id="searchAPI" 
         url="https://api.marcoreitano.dev/artists/search/findByAlias_AliasIgnoreCaseContaining"
         handle-as="json"
@@ -100,6 +100,12 @@ class CatalogueSearch extends PolymerElement {
     console.log("TokenChanged Event received");
     console.log(e);
     console.log(e.detail.token);
+    console.log(e.detail.userProfile);
+    this.userProfile = e.detail.userProfile;
+    this.token = e.detail.token;
+  }
+
+  _accountTest() {
     this.$.accountTest.withCredentials = true;
     this.$.accountTest.headers['authorization'] = 'bearer ' + e.detail.token;
     this.$.accountTest.generateRequest();
