@@ -91,6 +91,7 @@ class CatalogueSearch extends PolymerElement {
 
   _tokenChangedHandler(e) {
     console.log("TokenChanged Event received");
+    console.log(e);
   }
 }
 
