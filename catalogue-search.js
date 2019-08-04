@@ -42,6 +42,13 @@ class CatalogueSearch extends PolymerElement {
         data="{{liveData}}"
         persisted-data="{{persistedData}}">
       </app-indexeddb-mirror> 
+      <iron-ajax 
+        id="accountTest" 
+        url="https://login.marcoreitano.dev/auth/realms/Mitneve/account"
+        handle-as="json"
+        on-response="_handleResponse"
+        debounce-duration="300">
+      </iron-ajax>
     `;
   }
 
@@ -92,6 +99,10 @@ class CatalogueSearch extends PolymerElement {
   _tokenChangedHandler(e) {
     console.log("TokenChanged Event received");
     console.log(e);
+    console.log(e.detail.token);
+    this.$.accountTest.withCredentials = true;
+    this.$.accountTest.headers['authorization'] = 'bearer ' + e.detail.token;
+    this.$.accountTest.generateRequest();
   }
 }
 
