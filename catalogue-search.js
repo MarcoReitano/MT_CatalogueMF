@@ -9,9 +9,10 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
  * @demo demo/index.html
  */
 class CatalogueSearch extends PolymerElement {
+
   constructor() {
     super();
-    this._boundListener = this._myLocationListener.bind(this);
+    this._tokenChangedListener = this._tokenChangedHandler.bind(this);
   }
 
   static get template() {
@@ -61,12 +62,12 @@ class CatalogueSearch extends PolymerElement {
 
   connectedCallback() {
     super.connectedCallback();
-    window.addEventListener('tokenChanged', this._boundListener);
+    window.addEventListener('tokenChanged', this._tokenChangedListener);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    window.removeEventListener('tokenChanged', this._boundListener);
+    window.removeEventListener('tokenChanged', this._tokenChangedListener);
   }
 
   onInput() {
@@ -88,7 +89,7 @@ class CatalogueSearch extends PolymerElement {
     console.log("catalogueSearch event dispatched")
   }
 
-  _myLocationListener(e) {
+  _tokenChangedHandler(e) {
     console.log("TokenChanged Event received");
   }
 }
