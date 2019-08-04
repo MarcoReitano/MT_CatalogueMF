@@ -109,6 +109,7 @@ class CatalogueSearch extends PolymerElement {
     // this.$.accountTest.withCredentials = true;
     // this.$.accountTest.headers['authorization'] = 'bearer ' + this.token;
     // this.$.accountTest.generateRequest();
+    console.log('dispatch userAction event');
     this.dispatchEvent(
         new CustomEvent('userAction', {bubbles: true, composed: true}));
   }
