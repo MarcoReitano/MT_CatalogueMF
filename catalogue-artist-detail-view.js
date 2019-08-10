@@ -44,6 +44,9 @@ class ArtistDetailView extends PolymerElement {
       artist: {
         type: Object
       },
+      artistsData: {
+        type: Array
+      }
     };
   }
 
@@ -53,8 +56,8 @@ class ArtistDetailView extends PolymerElement {
     //find from indexdc
     //or get
     this.$.datastore.getStoredValue().then(data => {
-      this.searchData = data;
-      this.artist = data.filter(artist => {
+      this.artistsData = data;
+      this.artist = artistsData.filter(artist => {
         return artist.id === this.location.params.id
       });
     });
