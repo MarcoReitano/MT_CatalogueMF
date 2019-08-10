@@ -56,12 +56,12 @@ class ArtistDetailView extends PolymerElement {
     //find from indexdc
     //or get
     this.$.datastore.getStoredValue().then(data => {
-      this.artistsData = data;
-      this.artist = this.artistsData.filter(artist => {
-        return artist.id === this.location.params.id
-      });
+      this.artistsData = JSON.parse(data._embedded.artists);
+      // this.artist = this.artistsData.filter(artist => {
+      //   return artist.id === this.location.params.id
+      // });
     });
-    console.log(this.artist);
+    console.log(this.artistsData);
   }
 
   ready() {
