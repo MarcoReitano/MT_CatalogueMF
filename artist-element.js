@@ -87,7 +87,7 @@ class ArtistElement extends PolymerElement {
 
   handleClick() {
     console.log("Artist clicked!");
-    const artistPath = '/artist/' + artist.id;
+    const artistPath = '/artist/' + this.artist.id;
     console.log(artistPath);
     window.history.pushState({}, null, artistPath);
     window.dispatchEvent(new PopStateEvent('popstate'));
