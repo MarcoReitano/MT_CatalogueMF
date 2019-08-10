@@ -16,9 +16,8 @@ class ConcertDetailView extends PolymerElement {
       <style xmlns="http://www.w3.org/1999/html">
       </style>
       <div>
-      Concert detail view works!
-        <p>{{this.location.params.id}}</p>
-        <p>[[this.location.params.id]]</p>
+      Concert detail view
+        <p>[[location.params.id]]</p>
 
         <!--<app-indexeddb-mirror -->
           <!--id="datastore"-->
