@@ -58,7 +58,6 @@ class ArtistDetailView extends PolymerElement {
       //   return artist.id === this.location.params.id
       // });
     });
-    console.log(this.artistsData);
   }
 
   ready() {
