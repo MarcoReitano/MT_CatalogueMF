@@ -25,6 +25,10 @@ class ArtistDetailView extends PolymerElement {
         <p>[[arrayItem(location.params.*),0)]]</p>
         <div class="artist-alias">[[artist.alias]]</div>
         <div class="artist-genre">[[artist.genre]]</div>
+        <app-indexeddb-mirror 
+          id="datastore"
+          key="search">
+        </app-indexeddb-mirror>
       </div>
     `;
   };
@@ -37,10 +41,28 @@ class ArtistDetailView extends PolymerElement {
 
   static get properties() {
     return {
-      artistId: {
-        type: String
-      }
-    }
+      artist: {
+        type: Object
+      },
+    };
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    console.log("connectedCallback");
+    //find from indexdc
+    //or get
+    this.$.datastore.getStoredValue().then(data => {
+      this.searchData = data;
+      this.artist = data.filter(artist => artist.id = this.location.params.id);
+      console.log(this.artist);
+    });
+
+  }
+
+  ready() {
+    super.ready();
+    console.log("ready");
   }
 }
 

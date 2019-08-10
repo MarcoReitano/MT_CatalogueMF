@@ -77,6 +77,7 @@ class ArtistElement extends PolymerElement {
     return import.meta;
   }
   // @formatter:on
+
   static get properties() {
     return {
       artist: {
