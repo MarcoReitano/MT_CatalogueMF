@@ -22,14 +22,14 @@ class CatalogueSearch extends PolymerElement {
       <div class="search-container">
         <div class="field has-addons">
           <div class="control is-expanded">
-            <input id="searchInput" class="input" type="text" placeholder="Find an artist or event" on-input="onInput">
+            <input id="searchInput" class="input" type="text" placeholder="Find an artist or event" on-input="search">
           </div>
           <div class="control">
-            <button class="button" on-click="searchOnClick">Search</button>
+            <button class="button" on-click="search">Search</button>
           </div>
         </div>        
       </div>
-      <button class="button" on-click="_accountTest">Accounttest</button>
+      <button class="button" on-click="accountTest">Accounttest</button>
       <iron-ajax id="searchAPI" 
         url="https://api.marcoreitano.dev/artists/search/findByAlias_AliasIgnoreCaseContaining"
         handle-as="json"
@@ -77,24 +77,29 @@ class CatalogueSearch extends PolymerElement {
     window.removeEventListener('tokenChanged', this._tokenChangedListener);
   }
 
-  onInput() {
+  search() {
     console.log("OnInput");
     this.searchValue = this.$.searchInput.value;
     this.$.searchAPI.set('params', {"alias": this.searchValue});
     this.$.searchAPI.generateRequest();
+    window.history.pushState({}, null, '/search');
+    window.dispatchEvent(new PopStateEvent('popstate'));
   }
 
-  searchOnClick() {
-    this.searchValue = this.$.searchInput.value;
-    this.$.searchAPI.set('params', {"alias": this.searchValue});
-    this.$.searchAPI.generateRequest();
+  accountTest() {
+    // this.$.accountTest.withCredentials = true;
+    // this.$.accountTest.headers['authorization'] = 'bearer ' + this.token;
+    // this.$.accountTest.generateRequest();
+    console.log('dispatch userAction event');
+    this.dispatchEvent(
+        new CustomEvent('userAction', {bubbles: true, composed: true}));
   };
 
   _handleResponse() {
     this.dispatchEvent(
         new CustomEvent('catalogueSearch', {bubbles: true, composed: true}));
     console.log("catalogueSearch event dispatched")
-  }
+  };
 
   _tokenChangedHandler(e) {
     console.log("TokenChanged Event received");
@@ -103,16 +108,8 @@ class CatalogueSearch extends PolymerElement {
     console.log(e.detail.userProfile);
     this.userProfile = e.detail.userProfile;
     this.token = e.detail.token;
-  }
+  };
 
-  _accountTest() {
-    // this.$.accountTest.withCredentials = true;
-    // this.$.accountTest.headers['authorization'] = 'bearer ' + this.token;
-    // this.$.accountTest.generateRequest();
-    console.log('dispatch userAction event');
-    this.dispatchEvent(
-        new CustomEvent('userAction', {bubbles: true, composed: true}));
-  }
 }
 
 window.customElements.define('catalogue-search', CatalogueSearch);
