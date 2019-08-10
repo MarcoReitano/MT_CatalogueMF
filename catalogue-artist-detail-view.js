@@ -52,8 +52,9 @@ class ArtistDetailView extends PolymerElement {
     //or get
     this.$.datastore.getStoredValue().then(data => {
       this.artistsData = data._embedded.artists;
-      this.artistsData.filter(artist => artist.id === location.param.id);
-      
+      this.artist = this.artistsData.find(
+          artist => artist.id === this.location.params.id);
+      console.log(this.artist);
       // this.artist = this.artistsData.filter(artist => {
       //   return artist.id === this.location.params.id
       // });
