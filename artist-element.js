@@ -45,7 +45,7 @@ class ArtistElement extends PolymerElement {
           width: 20px;
         }
       </style>
-      <div class="artist-container">
+      <div class="artist-container" on-click="handleClick">
         <div class="artist-alias">[[artist.alias]]</div>
         <div class="artist-genre">[[artist.genre]]</div>
         <div class="socialmedia-bar">
@@ -83,6 +83,10 @@ class ArtistElement extends PolymerElement {
         type: Object
       },
     };
+  }
+
+  handleClick() {
+    console.log("Artist clicked!");
   }
 }
 
