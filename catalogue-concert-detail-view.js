@@ -18,11 +18,13 @@ class ConcertDetailView extends PolymerElement {
       <div>
       Concert detail view
         <p>[[location.params.id]]</p>
+        {{concert.id}}
 
-        <!--<app-indexeddb-mirror -->
-          <!--id="datastore"-->
-          <!--key="search">-->
-        <!--</app-indexeddb-mirror>-->
+        <app-indexeddb-mirror
+          id="concertdatastore"
+          key="concerts">
+        </app-indexeddb-mirror> 
+
       </div>
     `;
   };
@@ -47,6 +49,11 @@ class ConcertDetailView extends PolymerElement {
   connectedCallback() {
     super.connectedCallback();
     console.log("connectedCallback");
+    this.$.concertdatastore.getStoredValue().then(data => {
+      this.concertsData = data._embedded.concerts;
+      this.concert = this.concertsData.find(
+          concert => concert.id === this.location.params.id);
+    });
   }
 
   ready() {

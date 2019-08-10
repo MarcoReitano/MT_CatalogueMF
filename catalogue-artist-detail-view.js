@@ -20,6 +20,21 @@ class ArtistDetailView extends PolymerElement {
         <p>[[location.params.id]]</p>
         <div class="artist-alias">[[artist.alias]]</div>
         <div class="artist-genre">[[artist.genre]]</div>
+        <template is="dom-repeat" items="{{concerts}}" as="concert">
+          <catalogue-concert-element concert="{{concert}}"></catalogue-concert-element>
+        </template>
+        <iron-ajax id="concertAPI" 
+          url="https://api.marcoreitano.dev/concerts/search/findByArtist"
+          handle-as="json"
+          last-Response="{{concertLiveData}}"
+          on-response="_handleConcertAPIResponse"
+          debounce-duration="300">
+        </iron-ajax>
+        <app-indexeddb-mirror
+          key="concerts"
+          data="{{concertLiveData}}"
+          persisted-data="{{concertPersistedData}}">
+        </app-indexeddb-mirror> 
         <app-indexeddb-mirror 
           id="datastore"
           key="search">
@@ -41,6 +56,9 @@ class ArtistDetailView extends PolymerElement {
       },
       artistsData: {
         type: Array
+      },
+      concerts: {
+        type: Array
       }
     };
   }
@@ -54,17 +72,26 @@ class ArtistDetailView extends PolymerElement {
       this.artistsData = data._embedded.artists;
       this.artist = this.artistsData.find(
           artist => artist.id === this.location.params.id);
-      console.log(this.artist);
-      // this.artist = this.artistsData.filter(artist => {
-      //   return artist.id === this.location.params.id
-      // });
+      this._getConcerts();
     });
+
   }
 
   ready() {
     super.ready();
     console.log("ready");
   }
+
+  _getConcerts() {
+    this.$.concertAPI.set('params',
+        {"artisturi": this.artist._links.self.href});
+    this.$.concertAPI.generateRequest();
+  }
+
+  _handleConcertAPIResponse() {
+    console.log("ConcertAPI Response");
+    this.concerts = this.concertPersistedData._embedded.concerts;
+  };
 }
 
 window.customElements.define('catalogue-artist-detail-view', ArtistDetailView);
