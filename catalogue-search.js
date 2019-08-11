@@ -41,7 +41,7 @@ class CatalogueSearch extends PolymerElement {
         key="search"
         data="{{liveData}}"
         persisted-data="{{persistedData}}"
-        log="false">
+        log=false>
       </app-indexeddb-mirror> 
       <iron-ajax 
         id="accountTest" 

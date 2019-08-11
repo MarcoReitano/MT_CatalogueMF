@@ -24,7 +24,7 @@ class CatalogueSearchResults extends PolymerElement {
         <app-indexeddb-mirror 
           id="datastore"
           key="search"
-          log="false">
+          log=false>
         </app-indexeddb-mirror>
         <template is="dom-repeat" items="{{searchData._embedded.artists}}" as="artist">
           <catalogue-artist-element artist="{{artist}}"></catalogue-artist-element>
