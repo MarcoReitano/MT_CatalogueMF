@@ -18,12 +18,12 @@ class ConcertDetailView extends PolymerElement {
       <div class="concertdetailviewcontainer">
         Concert detail view
         <ticketing-ticket-list
-          concerturi={{concert._links.self.href}}></ticketing-ticket-list>       
+          concerturi=[[concert._links.self.href]]></ticketing-ticket-list>       
         {{concert._links.self.href}}
-        <app-indexeddb-mirror
+        <app-indexeddb-mirrorpol
           id="concertdatastore"
           key="concerts">
-        </app-indexeddb-mirror> 
+        </app-indexeddb-mirrorpol> 
 
       </div>
     `;
