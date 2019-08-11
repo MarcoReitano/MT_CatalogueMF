@@ -15,10 +15,12 @@ class ConcertDetailView extends PolymerElement {
           href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
       <style xmlns="http://www.w3.org/1999/html">
       </style>
-      <div>
+      <div class="concertdetailviewcontainer">
       Concert detail view
-        <p>[[location.params.id]]</p>
+      <ticketing-ticket-list
+    concerturi={{concert._links.self.href}}></ticketing-ticket-list>
         {{concert.id}}
+        
 
         <app-indexeddb-mirror
           id="concertdatastore"
