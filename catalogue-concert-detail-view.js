@@ -20,10 +20,10 @@ class ConcertDetailView extends PolymerElement {
         <ticketing-ticket-list
           concerturi=[[concert._links.self.href]]></ticketing-ticket-list>       
         {{concert._links.self.href}}
-        <app-indexeddb-mirrorpol
+        <app-indexeddb-mirror
           id="concertdatastore"
           key="concerts">
-        </app-indexeddb-mirrorpol> 
+        </app-indexeddb-mirror> 
 
       </div>
     `;
