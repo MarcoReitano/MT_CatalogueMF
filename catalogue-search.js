@@ -12,7 +12,6 @@ class CatalogueSearch extends PolymerElement {
 
   constructor() {
     super();
-    this._tokenChangedListener = this._tokenChangedHandler.bind(this);
   }
 
   static get template() {
@@ -29,7 +28,7 @@ class CatalogueSearch extends PolymerElement {
           </div>
         </div>        
       </div>
-      <button class="button" on-click="accountTest">Accounttest</button>
+
       <iron-ajax id="searchAPI" 
         url="https://api.marcoreitano.dev/artists/search/findByAlias_AliasIgnoreCaseContaining"
         handle-as="json"
@@ -70,16 +69,13 @@ class CatalogueSearch extends PolymerElement {
 
   connectedCallback() {
     super.connectedCallback();
-    window.addEventListener('tokenChanged', this._tokenChangedListener);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    window.removeEventListener('tokenChanged', this._tokenChangedListener);
   }
 
   search() {
-    console.log("OnInput");
     this.searchValue = this.$.searchInput.value;
     this.$.searchAPI.set('params', {"alias": this.searchValue});
     this.$.searchAPI.generateRequest();
@@ -87,30 +83,10 @@ class CatalogueSearch extends PolymerElement {
     window.dispatchEvent(new PopStateEvent('popstate'));
   }
 
-  accountTest() {
-    // this.$.accountTest.withCredentials = true;
-    // this.$.accountTest.headers['authorization'] = 'bearer ' + this.token;
-    // this.$.accountTest.generateRequest();
-    console.log('dispatch userAction event');
-    this.dispatchEvent(
-        new CustomEvent('userAction', {bubbles: true, composed: true}));
-  };
-
   _handleResponse() {
     this.dispatchEvent(
         new CustomEvent('catalogueSearch', {bubbles: true, composed: true}));
-    console.log("catalogueSearch event dispatched")
   };
-
-  _tokenChangedHandler(e) {
-    console.log("TokenChanged Event received");
-    console.log(e);
-    console.log(e.detail.token);
-    console.log(e.detail.userProfile);
-    this.userProfile = e.detail.userProfile;
-    this.token = e.detail.token;
-  };
-
 }
 
 window.customElements.define('catalogue-search', CatalogueSearch);
