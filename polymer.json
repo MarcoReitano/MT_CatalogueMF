@@ -14,9 +14,6 @@
   ],
   "shell": "catalogue.js",
   "autoBasePath": true,
-  //  "extraDependencies": [
-  //    "node_modules/@polymer/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.js"
-  //  ]
   "builds": [
     {
       "name": "es2015",
